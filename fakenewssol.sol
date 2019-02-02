@@ -9,20 +9,32 @@ contract Fakenews{
         bool validate;
     }
     
-    mapping(uint8 => votes) votestatus;
-    mapping(address => uint) voteflag;
+    mapping(string => votes) votestatus;
+    mapping(address => string) voteflag;
     mapping(address => uint) voteCount;
     
 
-    function postQuery(uint8 text) public{
+    function postQuery(string memory text) public{
         require(votestatus[text].validate == false);
         votestatus[text].notfake=0;
         votestatus[text].fake=0;
         votestatus[text].validate = true;
     }
     
-    function voteFake(uint8 text) public{
-        require(voteflag[msg.sender] != text);
+    function stringsEqual(string storage _a, string memory _b) internal view returns (bool) {
+bytes storage a = bytes(_a);
+bytes memory b = bytes(_b);
+if (a.length != b.length)
+return false;
+// @todo unroll this loop
+for (uint i = 0; i < a.length; i ++)
+if (a[i] != b[i])
+return false;
+return true;
+}
+    
+    function voteFake(string memory text) public{
+        require(!stringsEqual(voteflag[msg.sender],text));
         votestatus[text].fake += 1;
         voteflag[msg.sender] = text;
         voteCount[msg.sender] += 1;
@@ -32,12 +44,12 @@ contract Fakenews{
     }
 
     
-    function voteTrue(uint8 text) public{
-        require(voteflag[msg.sender] != text);
+    function voteTrue(string memory text) public{
+        require(!stringsEqual(voteflag[msg.sender],text));
         votestatus[text].notfake += 1;
         voteflag[msg.sender] = text;
         voteCount[msg.sender] += 1;
-        if(voteCount[msg.sender] >= 5){
+        if(voteCount[msg.sender] % 5 == 0){
             getIncentive();
         }
     }
@@ -50,7 +62,7 @@ contract Fakenews{
         amount = msg.value;
     }
     
-    function viewCount(uint8 text) public view returns(uint,uint){
+    function viewCount(string memory text) public view returns(uint,uint){
         require(amount == 0.1 ether);
         return(votestatus[text].notfake, votestatus[text].fake);
     }
