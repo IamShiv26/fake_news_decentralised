@@ -1,0 +1,26 @@
+{
+  "name": "ethereum-dapp",
+  "version": "0.1.0",
+  "author": "Vineet Tyagi",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^4.1.2",
+    "react": "^16.4.2",
+    "react-bootstrap": "^0.32.1",
+    "react-dom": "^16.4.2",
+    "react-scripts": "1.1.4",
+    "web3": "^1.0.0-beta.26"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.7"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "engines": {
+    "node": "10.2.1"
+  }
+}
