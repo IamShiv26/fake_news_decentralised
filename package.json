@@ -1,26 +1,26 @@
 {
-  "name": "ethereum-dapp",
+  "name": "hackit",
   "version": "0.1.0",
-  "author": "Vineet Tyagi",
   "private": true,
   "dependencies": {
-    "bootstrap": "^4.1.2",
-    "react": "^16.4.2",
-    "react-bootstrap": "^0.32.1",
-    "react-dom": "^16.4.2",
-    "react-scripts": "1.1.4",
-    "web3": "^1.0.0-beta.26"
-  },
-  "devDependencies": {
-    "css-loader": "^0.28.7"
+    "axios": "^0.18.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-scripts": "2.1.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "engines": {
-    "node": "10.2.1"
-  }
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
