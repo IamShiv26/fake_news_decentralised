@@ -5,6 +5,7 @@ import FormGroup from 'react-bootstrap/lib/FormGroup';
 import Form from 'react-bootstrap/lib/Form';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import {abi, address} from './contract';
+import logo from './logo.png';
 
 let contract;
 export class Article extends Component {
@@ -20,7 +21,9 @@ export class Article extends Component {
         message1 : '',
         isMetaMask: false,
         newsURL : '',
-        voteEnabled:''
+        voteEnabled:'',
+        resultfake:'',
+        resultnotfake:''
     };
 	
 
@@ -102,7 +105,7 @@ export class Article extends Component {
         event.preventDefault();
 		let counts;
         const accounts = await web3.eth.getAccounts();
-		
+		let notfake,fake;
         this.setState({message1: 'Waiting for confirmation..'});
         try {
             await contract.methods.transferAmount().send(
@@ -112,12 +115,13 @@ export class Article extends Component {
                     value: web3.utils.toWei("0.3")
                 }
             );
-            
-        counts = contract.methods.viewCount(this.state.newsURL).call();
+            notfake = await contract.methods.viewCountTrue(this.state.newsURL).call();
+            fake = await contract.methods.viewCountFake(this.state.newsURL).call();
 		//let notfakecount = counts[0];
 		//let fakecount=counts[1];
-            this.setState({message1: 'Not fake count : ' + counts});
-            console.log(counts);
+            this.setState({ resultnotfake:notfake });
+            this.setState({ resultfake:fake });
+            console.log(this.state.resultnotfake,this.state.resultfake);
         } catch (err) {
             this.setState({message1: 'Error in result'});
         }
@@ -126,7 +130,21 @@ export class Article extends Component {
   render() {
     console.log(this.props.article);
     return (
-      <div className="container">
+       
+     
+     <div> <nav className="navbar navbar-light bg-info">
+     <a className="navbar-brand" href="#">
+       
+       <img src={logo} width="30" height="45" alt="" />
+       <span style={{padding:'2em', color:'white', size:'2em'}}>NewsGlobal</span>
+      
+       </a>
+      </nav>
+     
+     
+     
+     
+      <div style={{padding:'6.5em 0em 0em 0em'}} className="container">
         <div className="row">
           <div className="col-md-8">
             <ul className="list-group-flush">
@@ -159,21 +177,26 @@ export class Article extends Component {
           <div className="col-md-3">
             <ul className="list-group flush mt-2">
             <li className="list-group-item">
-                    <Button bsSize="large" bsStyle="info" hidden={!(this.state.voteEnabled)} onClick={this.startVote}>Start Vote</Button>
+                    <Button bsSize="large" bsStyle="info" onClick={this.startVote}>Start Vote</Button>
                 </li>
                 <li className="list-group-item">
-                    <Button bsSize="large" bsStyle="info" hidden={this.state.voteEnabled} onClick={this.castVoteFake}>Vote as Fake</Button>
+                    <Button bsSize="large" bsStyle="info"  onClick={this.castVoteFake}>Vote as Fake</Button>
                 </li>
                 <li className="list-group-item">
-                    <Button bsSize="large" bsStyle="info" hidden={this.state.voteEnabled} onClick={this.castVoteTrue}>Vote as Real</Button>
+                    <Button bsSize="large" bsStyle="info" onClick={this.castVoteTrue}>Vote as Real</Button>
                 </li>
                 <li className="list-group-item">
-                    <Button bsSize="large" bsStyle="info" hidden={this.state.voteEnabled} onClick={this.viewCount1}>View Count</Button>
+                    <Button bsSize="large" bsStyle="info" onClick={this.viewCount1}>View Count</Button>
+                </li>
+                <li className="list-group-item">
+                	<h2>truth count:{this.state.resultnotfake}</h2>
+                	<h2>fake count:{this.state.resultfake}</h2>
                 </li>
             </ul>
           </div>
         </div>
       </div>
+   </div>
     );   
   }
 }

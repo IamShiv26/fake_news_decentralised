@@ -20,6 +20,13 @@
   color: #aaa;
 }
 
+.spacing
+{
+ 
+  padding-top: 6em;
+ 
+}
+
 .btn-secondary {
   color: #fff;
   background-color: #5464ca;

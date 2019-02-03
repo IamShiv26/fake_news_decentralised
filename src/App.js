@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import Article from './components/Article';
-
+import logo from './logo.png'
 export class App extends Component {
 
     constructor(props) {
@@ -65,7 +65,15 @@ export class App extends Component {
   
     rendernewsList() {
       return (
-        <div className="container App">
+       <div> <nav className="navbar navbar-light bg-info">
+     <a className="navbar-brand" href="#">
+       
+       <img src={logo} width="30" height="45" alt="" />
+       <span style={{padding:'2em', color:'white', size:'2em'}}>NewsGlobal</span>
+      
+       </a>
+      </nav>
+        <div className="container App spacing">
           <section>
             <ul className="list-group">
               {this.state.articles.map((news, i) => {
@@ -95,6 +103,7 @@ export class App extends Component {
             </ul>
           </section>
         </div>
+</div>
       );
     }
 

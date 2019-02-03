@@ -36,7 +36,7 @@ class FrontPage extends Component {
 							<li className="list-group-item fpli">
 								<div id="searchinput">
 									<div className="input-group col-md-12">               
-										<form onSubmmit={this.handleData}>
+										<form onSubmit={this.handleData}>
 											<div className="input-group searchbar">
 												<input type="text"  value={this.state.value} onChange={this.handleData} className="form-control" placeholder="Search for your daily dose of news" />
 												<div className="input-group-append">

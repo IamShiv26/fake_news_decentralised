@@ -9,6 +9,25 @@ const abi = [
 		"type": "function"
 	},
 	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "text",
+				"type": "string"
+			}
+		],
+		"name": "viewCountFake",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"constant": false,
 		"inputs": [
 			{
@@ -44,15 +63,11 @@ const abi = [
 				"type": "string"
 			}
 		],
-		"name": "viewCount",
+		"name": "validateVoteStart",
 		"outputs": [
 			{
 				"name": "",
-				"type": "uint256"
-			},
-			{
-				"name": "",
-				"type": "uint256"
+				"type": "bool"
 			}
 		],
 		"payable": false,
@@ -67,11 +82,11 @@ const abi = [
 				"type": "string"
 			}
 		],
-		"name": "validateVoteStart",
+		"name": "viewCountTrue",
 		"outputs": [
 			{
 				"name": "",
-				"type": "bool"
+				"type": "uint256"
 			}
 		],
 		"payable": false,
@@ -93,6 +108,6 @@ const abi = [
 		"type": "function"
 	}
 ]
-const address = '0x7bb7c62e259de3710f53a19790822bda6f5b787d';
+const address = '0xa67c706912220d9aa2001870fa278bf5fc51fb12';
 
 module.exports = {abi, address};

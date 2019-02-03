@@ -65,8 +65,13 @@ return true;
         amount = msg.value;
     }
     
-    function viewCount(string memory text) public view returns(uint,uint){
+    function viewCountTrue(string memory text) public view returns(uint){
         require(amount == 0.3 ether);
-        return(votestatus[text].notfake, votestatus[text].fake);
+        return votestatus[text].notfake ;
+    }
+    
+    function viewCountFake(string memory text) public view returns(uint){
+        require(amount == 0.3 ether);
+        return votestatus[text].fake ;
     }
 }
