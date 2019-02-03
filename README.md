@@ -1,6 +1,6 @@
 # Fake_news_decentralised
 
-A lot of fake news goes around being circulated in on the Internet these days. This news can be misleading, create false propaganda, disturb communal harmony, affect election results etc. Thus we have created a simple yet powerful solution to prevent propogation and consumption of fake news.
+A lot of fake news goes around being circulated in on the Internet these days. This news can be misleading, create false propaganda, disturb communal harmony, affect election results etc. Thus we have created a simple yet powerful solution using Ethereum based smart contracts to prevent propogation and consumption of fake news.
 
 ## Getting Started
 
