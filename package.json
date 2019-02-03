@@ -4,6 +4,7 @@
   "author": "Vineet Tyagi",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap": "^4.1.2",
     "react": "^16.4.2",
     "react-bootstrap": "^0.32.1",
