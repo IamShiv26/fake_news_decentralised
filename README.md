@@ -1,6 +1,7 @@
 # Fake_news_decentralised
 
 A lot of fake news goes around being circulated in on the Internet these days. This news can be misleading, create false propaganda, disturb communal harmony, affect election results etc. Thus we have created a simple yet powerful solution using Ethereum based smart contracts to prevent propogation and consumption of fake news.
+Voters will get incentive based on their participation in voting.For detailed information please refer the smart contract sol file (fake-news-sol.sol) . To see the number of current votes on a news article, people will need to pay a minimal amount for everytime they view the vote count. People can thus deicde by themselves whether the news article is fake or not with the help of the number of votes on an article.
 
 ## Getting Started
 
