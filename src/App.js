@@ -3,7 +3,7 @@ import axios from 'axios';
 import './App.css';
 import Article from './components/Article';
 
-class App extends Component {
+export class App extends Component {
 
     constructor(props) {
       // Pass props to parent class
@@ -24,8 +24,8 @@ class App extends Component {
     componentWillReceiveProps(nextProps) {
       if (nextProps !== this.props) {
         this.setState({ url:'https://newsapi.org/v2/everything?' +
-        'q=Apple&' +
-        'from=2019-02-02&' +
+        'q=' + this.props.value + '&' +
+        'language=en&' +
         'sortBy=popularity&' +
         'apiKey=097f0f6fb89b43539cbaa31372c3f92d'});
   
@@ -49,8 +49,8 @@ class App extends Component {
       // Make HTTP reques with Axios
       axios
         .get('https://newsapi.org/v2/everything?' +
-        'q=Apple&' +
-        'from=2019-02-02&' +
+        'q=' + this.props.value + '&' +
+        'language=en&' +
         'sortBy=popularity&' +
         'apiKey=097f0f6fb89b43539cbaa31372c3f92d')
         .then(res => {

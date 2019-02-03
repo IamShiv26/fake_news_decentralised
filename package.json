@@ -1,7 +1,7 @@
 {
-  "name": "ethereum-dapp",
+  "name": "fake-news-detecter",
   "version": "0.1.0",
-  "author": "Vineet Tyagi",
+  "author": "Shivashish Jaiswal",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",

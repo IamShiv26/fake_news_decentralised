@@ -146,6 +146,14 @@ export class Article extends Component {
                     <h4>Content:</h4><br/>
                     <div><p>{ this.props.article.content }</p></div>
                 </li>
+                <li className="list-group-item">
+                  <div>
+                    <a href={ this.props.article.url } target="_blank">
+                      <input type="button" class="btn btn-lg btn-block btn-outline-primary"
+                                value="View the entire article"/>
+                    </a>
+                  </div>
+                </li>
             </ul>
           </div>
           <div className="col-md-3">
